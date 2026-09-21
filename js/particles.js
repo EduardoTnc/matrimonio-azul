@@ -1,6 +1,6 @@
 /**
- * Lluvia Suave de Brillos Dorados
- * Efecto sereno y elegante de partículas doradas flotando lentamente
+ * Lluvia Ultra-Suave de Brillos Dorados (Micro-partículas circulares)
+ * Caída extremadamente lenta, serena y elegante de polvo de oro
  */
 (function () {
   const canvas = document.getElementById('particles-canvas');
@@ -9,8 +9,7 @@
   const ctx = canvas.getContext('2d');
   let width, height;
   let particles = [];
-  let sparkles = [];
-  const particleCount = 75; // Cantidad equilibrada y suave de brillos
+  const particleCount = 65; // Densidad ideal para una atmósfera limpia y elegante
 
   function resize() {
     width = canvas.width = window.innerWidth;
@@ -20,7 +19,7 @@
   window.addEventListener('resize', resize);
   resize();
 
-  // Partícula de lluvia dorada suave
+  // Partícula circular de polvo dorado
   class GoldDrop {
     constructor() {
       this.reset(true);
@@ -28,18 +27,18 @@
 
     reset(initial = false) {
       this.x = Math.random() * width;
-      this.y = initial ? Math.random() * height : -15 - Math.random() * 40;
-      this.size = Math.random() * 2.2 + 0.8;
+      this.y = initial ? Math.random() * height : -10 - Math.random() * 30;
+      this.size = Math.random() * 1.8 + 0.6; // Partículas finas y sutiles
       
-      // Velocidad lenta y tranquila (caída suave y flotante)
-      this.speedY = Math.random() * 0.35 + 0.15;
-      this.speedX = (Math.random() - 0.5) * 0.15;
+      // Caída ultra lenta y suave (flotación tranquila)
+      this.speedY = Math.random() * 0.18 + 0.08;
+      this.speedX = (Math.random() - 0.5) * 0.08;
       this.sway = Math.random() * Math.PI * 2;
-      this.swaySpeed = Math.random() * 0.012 + 0.005;
-      this.swayDistance = Math.random() * 1.2 + 0.4;
+      this.swaySpeed = Math.random() * 0.008 + 0.003;
+      this.swayDistance = Math.random() * 0.8 + 0.2;
       
-      this.opacity = Math.random() * 0.65 + 0.3;
-      this.twinkleSpeed = Math.random() * 0.018 + 0.008;
+      this.opacity = Math.random() * 0.6 + 0.25;
+      this.twinkleSpeed = Math.random() * 0.012 + 0.005;
       this.twinklePhase = Math.random() * Math.PI * 2;
 
       const tones = [
@@ -47,7 +46,7 @@
         '245, 215, 110', // Oro 24k
         '212, 175, 55',  // Oro clásico
         '255, 240, 180', // Oro champaña
-        '250, 200, 95'   // Oro cálido
+        '250, 205, 100'  // Oro cálido
       ];
       this.color = tones[Math.floor(Math.random() * tones.length)];
     }
@@ -58,10 +57,10 @@
       this.x += Math.sin(this.sway) * this.swayDistance + this.speedX;
       this.twinklePhase += this.twinkleSpeed;
 
-      // Brillo pulsante suave
-      const currentOpacity = Math.max(0.12, Math.min(0.9, this.opacity + Math.sin(this.twinklePhase) * 0.25));
+      // Brillo pulsante tenue y suave
+      const currentOpacity = Math.max(0.1, Math.min(0.85, this.opacity + Math.sin(this.twinklePhase) * 0.2));
 
-      if (this.y > height + 20 || this.x < -20 || this.x > width + 20) {
+      if (this.y > height + 15 || this.x < -15 || this.x > width + 15) {
         this.reset(false);
       }
 
@@ -73,12 +72,12 @@
       ctx.save();
       ctx.translate(this.x, this.y);
 
-      // Partícula circular suave con halo dorado
+      // Partícula circular de polvo dorado (sin estrellas)
       ctx.beginPath();
       ctx.arc(0, 0, this.size, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(${this.color}, ${op})`;
-      ctx.shadowBlur = this.size * 3.5;
-      ctx.shadowColor = `rgba(${this.color}, ${op * 0.8})`;
+      ctx.shadowBlur = this.size * 3;
+      ctx.shadowColor = `rgba(${this.color}, ${op * 0.75})`;
       ctx.fill();
 
       ctx.restore();
@@ -90,57 +89,13 @@
     particles.push(new GoldDrop());
   }
 
-  // Destellos suaves al mover/tocar pantalla
-  function addSparkle(x, y) {
-    if (sparkles.length > 20) sparkles.shift();
-    sparkles.push({
-      x: x + (Math.random() - 0.5) * 16,
-      y: y + (Math.random() - 0.5) * 16,
-      size: Math.random() * 2.5 + 1.2,
-      opacity: 0.85,
-      decay: Math.random() * 0.025 + 0.015,
-      color: '255, 235, 170'
-    });
-  }
-
-  window.addEventListener('pointermove', (e) => {
-    if (Math.random() > 0.7) {
-      addSparkle(e.clientX, e.clientY);
-    }
-  }, { passive: true });
-
-  window.addEventListener('touchmove', (e) => {
-    if (e.touches && e.touches[0] && Math.random() > 0.6) {
-      addSparkle(e.touches[0].clientX, e.touches[0].clientY);
-    }
-  }, { passive: true });
-
-  // Bucle de animación optimizado a velocidad lenta y suave
+  // Bucle de animación optimizado
   function animate() {
     ctx.clearRect(0, 0, width, height);
 
-    // Dibujar lluvia de brillos suaves
     for (let i = 0; i < particles.length; i++) {
       particles[i].update();
       particles[i].draw();
-    }
-
-    // Dibujar destellos circulares
-    for (let i = sparkles.length - 1; i >= 0; i--) {
-      const sp = sparkles[i];
-      sp.opacity -= sp.decay;
-      if (sp.opacity <= 0) {
-        sparkles.splice(i, 1);
-        continue;
-      }
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(sp.x, sp.y, sp.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${sp.color}, ${sp.opacity})`;
-      ctx.shadowBlur = 8;
-      ctx.shadowColor = 'rgba(212, 175, 55, 0.7)';
-      ctx.fill();
-      ctx.restore();
     }
 
     requestAnimationFrame(animate);
