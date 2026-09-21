@@ -1,6 +1,6 @@
 /**
- * Lluvia de Brillos Dorados y Destellos Mágicos de Boda
- * Efecto de partículas doradas cayendo suavemente con estrellas parpadeantes y destellos interactivos
+ * Lluvia Suave de Brillos Dorados
+ * Efecto sereno y elegante de partículas doradas flotando lentamente
  */
 (function () {
   const canvas = document.getElementById('particles-canvas');
@@ -10,7 +10,7 @@
   let width, height;
   let particles = [];
   let sparkles = [];
-  const particleCount = 85; // Lluvia elegante y fluida con alta densidad de brillos
+  const particleCount = 75; // Cantidad equilibrada y suave de brillos
 
   function resize() {
     width = canvas.width = window.innerWidth;
@@ -20,7 +20,7 @@
   window.addEventListener('resize', resize);
   resize();
 
-  // Partícula de lluvia dorada
+  // Partícula de lluvia dorada suave
   class GoldDrop {
     constructor() {
       this.reset(true);
@@ -28,30 +28,26 @@
 
     reset(initial = false) {
       this.x = Math.random() * width;
-      this.y = initial ? Math.random() * height : -20 - Math.random() * 50;
-      this.size = Math.random() * 3.2 + 0.9;
-      this.speedY = Math.random() * 0.95 + 0.45; // Caída suave hacia abajo (lluvia de brillo)
-      this.speedX = (Math.random() - 0.5) * 0.4;
+      this.y = initial ? Math.random() * height : -15 - Math.random() * 40;
+      this.size = Math.random() * 2.2 + 0.8;
+      
+      // Velocidad lenta y tranquila (caída suave y flotante)
+      this.speedY = Math.random() * 0.35 + 0.15;
+      this.speedX = (Math.random() - 0.5) * 0.15;
       this.sway = Math.random() * Math.PI * 2;
-      this.swaySpeed = Math.random() * 0.025 + 0.01;
-      this.swayDistance = Math.random() * 1.8 + 0.6;
+      this.swaySpeed = Math.random() * 0.012 + 0.005;
+      this.swayDistance = Math.random() * 1.2 + 0.4;
       
-      this.opacity = Math.random() * 0.75 + 0.35;
-      this.twinkleSpeed = Math.random() * 0.035 + 0.015;
+      this.opacity = Math.random() * 0.65 + 0.3;
+      this.twinkleSpeed = Math.random() * 0.018 + 0.008;
       this.twinklePhase = Math.random() * Math.PI * 2;
-      
-      // Tipo: 0 = círculo de polvo dorado, 1 = estrella de 4 puntas centelleante (✦)
-      this.type = Math.random() > 0.55 ? 1 : 0;
-      this.rotation = Math.random() * Math.PI * 2;
-      this.rotSpeed = (Math.random() - 0.5) * 0.04;
 
       const tones = [
         '255, 245, 200', // Oro brillante luz
         '245, 215, 110', // Oro 24k
         '212, 175, 55',  // Oro clásico
-        '255, 255, 240', // Destello diamante blanco-dorado
-        '250, 195, 85',  // Oro cálido
-        '255, 230, 150'  // Oro champaña
+        '255, 240, 180', // Oro champaña
+        '250, 200, 95'   // Oro cálido
       ];
       this.color = tones[Math.floor(Math.random() * tones.length)];
     }
@@ -60,13 +56,12 @@
       this.y += this.speedY;
       this.sway += this.swaySpeed;
       this.x += Math.sin(this.sway) * this.swayDistance + this.speedX;
-      this.rotation += this.rotSpeed;
       this.twinklePhase += this.twinkleSpeed;
 
-      // Brillo pulsante
-      const currentOpacity = Math.max(0.1, Math.min(1, this.opacity + Math.sin(this.twinklePhase) * 0.35));
+      // Brillo pulsante suave
+      const currentOpacity = Math.max(0.12, Math.min(0.9, this.opacity + Math.sin(this.twinklePhase) * 0.25));
 
-      if (this.y > height + 25 || this.x < -30 || this.x > width + 30) {
+      if (this.y > height + 20 || this.x < -20 || this.x > width + 20) {
         this.reset(false);
       }
 
@@ -78,38 +73,13 @@
       ctx.save();
       ctx.translate(this.x, this.y);
 
-      if (this.type === 1) {
-        // Estrella de 4 puntas brillante (✦)
-        ctx.rotate(this.rotation);
-        const s = this.size * 2.4;
-        
-        ctx.beginPath();
-        ctx.moveTo(0, -s);
-        ctx.quadraticCurveTo(0, 0, s, 0);
-        ctx.quadraticCurveTo(0, 0, 0, s);
-        ctx.quadraticCurveTo(0, 0, -s, 0);
-        ctx.quadraticCurveTo(0, 0, 0, -s);
-        ctx.closePath();
-
-        ctx.fillStyle = `rgba(${this.color}, ${op})`;
-        ctx.shadowBlur = s * 3;
-        ctx.shadowColor = `rgba(${this.color}, ${op * 0.9})`;
-        ctx.fill();
-
-        // Destello central blanco puro
-        ctx.beginPath();
-        ctx.arc(0, 0, this.size * 0.6, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${Math.min(1, op * 1.2)})`;
-        ctx.fill();
-      } else {
-        // Polvo dorado suave con halo
-        ctx.beginPath();
-        ctx.arc(0, 0, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${this.color}, ${op})`;
-        ctx.shadowBlur = this.size * 4;
-        ctx.shadowColor = `rgba(${this.color}, ${op * 0.85})`;
-        ctx.fill();
-      }
+      // Partícula circular suave con halo dorado
+      ctx.beginPath();
+      ctx.arc(0, 0, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${this.color}, ${op})`;
+      ctx.shadowBlur = this.size * 3.5;
+      ctx.shadowColor = `rgba(${this.color}, ${op * 0.8})`;
+      ctx.fill();
 
       ctx.restore();
     }
@@ -120,42 +90,42 @@
     particles.push(new GoldDrop());
   }
 
-  // Destellos interactivos al mover/tocar pantalla
+  // Destellos suaves al mover/tocar pantalla
   function addSparkle(x, y) {
-    if (sparkles.length > 25) sparkles.shift();
+    if (sparkles.length > 20) sparkles.shift();
     sparkles.push({
-      x: x + (Math.random() - 0.5) * 20,
-      y: y + (Math.random() - 0.5) * 20,
-      size: Math.random() * 3 + 2,
-      opacity: 1,
-      decay: Math.random() * 0.03 + 0.02,
-      color: '255, 235, 160'
+      x: x + (Math.random() - 0.5) * 16,
+      y: y + (Math.random() - 0.5) * 16,
+      size: Math.random() * 2.5 + 1.2,
+      opacity: 0.85,
+      decay: Math.random() * 0.025 + 0.015,
+      color: '255, 235, 170'
     });
   }
 
   window.addEventListener('pointermove', (e) => {
-    if (Math.random() > 0.6) {
+    if (Math.random() > 0.7) {
       addSparkle(e.clientX, e.clientY);
     }
   }, { passive: true });
 
   window.addEventListener('touchmove', (e) => {
-    if (e.touches && e.touches[0] && Math.random() > 0.5) {
+    if (e.touches && e.touches[0] && Math.random() > 0.6) {
       addSparkle(e.touches[0].clientX, e.touches[0].clientY);
     }
   }, { passive: true });
 
-  // Bucle de animación optimizado
+  // Bucle de animación optimizado a velocidad lenta y suave
   function animate() {
     ctx.clearRect(0, 0, width, height);
 
-    // Dibujar lluvia de brillos
+    // Dibujar lluvia de brillos suaves
     for (let i = 0; i < particles.length; i++) {
       particles[i].update();
       particles[i].draw();
     }
 
-    // Dibujar destellos interactivos
+    // Dibujar destellos circulares
     for (let i = sparkles.length - 1; i >= 0; i--) {
       const sp = sparkles[i];
       sp.opacity -= sp.decay;
@@ -164,17 +134,11 @@
         continue;
       }
       ctx.save();
-      ctx.translate(sp.x, sp.y);
-      const s = sp.size;
       ctx.beginPath();
-      ctx.moveTo(0, -s);
-      ctx.quadraticCurveTo(0, 0, s, 0);
-      ctx.quadraticCurveTo(0, 0, 0, s);
-      ctx.quadraticCurveTo(0, 0, -s, 0);
-      ctx.quadraticCurveTo(0, 0, 0, -s);
+      ctx.arc(sp.x, sp.y, sp.size, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(${sp.color}, ${sp.opacity})`;
-      ctx.shadowBlur = 10;
-      ctx.shadowColor = 'rgba(255, 215, 0, 0.9)';
+      ctx.shadowBlur = 8;
+      ctx.shadowColor = 'rgba(212, 175, 55, 0.7)';
       ctx.fill();
       ctx.restore();
     }
