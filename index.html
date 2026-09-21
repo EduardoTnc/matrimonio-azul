@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Boda de Roosvelt & Erica | Invitación Digital</title>
+  
+  <!-- SEO & OpenGraph para compartir en WhatsApp, Facebook, Telegram -->
+  <meta name="description" content="Nos complace invitarte a celebrar nuestro matrimonio. Roosvelt & Erica - 28 de Noviembre de 2026.">
+  <meta property="og:title" content="Boda de Roosvelt & Erica 💍 | Invitación Oficial">
+  <meta property="og:description" content="¡El inicio de nuestra mejor historia! Acompáñanos este 28 de Noviembre de 2026 a celebrar nuestra unión.">
+  <meta property="og:image" content="assets/images/wax_seal.jpg">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#07142a">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/images/wax_seal.jpg">
+
+  <!-- Google Fonts: Cinzel, Cormorant Garamond, Montserrat, Alex Brush, Great Vibes, Pinyon Script, Parisienne, Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Parisienne&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Canvas de partículas doradas en segundo plano -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Audio de fondo (Que Te Quiero) -->
+  <audio id="wedding-audio" loop preload="auto">
+    <source src="assets/audio/Que%20Te%20Quiero.mp3" type="audio/mpeg">
+    <source src="assets/audio/que-te-quiero.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+
+  <!-- ===================================================
+       PANTALLA INICIAL: SOBRE INTERACTIVO 3D CON LACRE
+       =================================================== -->
+  <section id="envelope-screen" aria-label="Sobre de la invitación">
+    <div class="envelope-stage">
+      <!-- Fondo azul noche aterciopelado con marco dorado -->
+      <div class="envelope-bg-decor"></div>
+      <div class="envelope-frame-border"></div>
+
+      <!-- Elementos gráficos transparentes idénticos a la imagen de referencia -->
+      <img src="assets/images/13-removebg-preview.png" class="env-decor-tl-flower" alt="" loading="eager">
+      <img src="assets/images/19-removebg-preview.png" class="env-decor-rings" alt="Alianzas de boda" loading="eager">
+      <img src="assets/images/7-removebg-preview.png" class="env-decor-filigree-top" alt="" loading="eager">
+
+      <img src="assets/images/20-removebg-preview.png" class="env-decor-ribbon" alt="" loading="eager">
+      <img src="assets/images/21-removebg-preview.png" class="env-decor-candle" alt="Vela encendida" loading="eager">
+      <img src="assets/images/12-removebg-preview.png" class="env-decor-br-flower" alt="" loading="eager">
+      <img src="assets/images/7-removebg-preview.png" class="env-decor-filigree-bottom" alt="" loading="eager">
+
+      <!-- El Sobre 3D -->
+      <div class="envelope-container" id="interactive-envelope" role="button" tabindex="0" aria-label="Abrir sobre de invitación">
+        <div class="envelope-body">
+          <!-- Dobleces del sobre -->
+          <div class="envelope-inner-fold-left"></div>
+          <div class="envelope-inner-fold-right"></div>
+          <div class="envelope-inner-fold-bottom"></div>
+
+          <!-- Solapa superior 3D -->
+          <div class="envelope-flap">
+            <div class="envelope-flap-inner">
+              <!-- Filigrana dorada en la solapa -->
+              <div class="flap-ornament">
+                <img src="assets/images/7-removebg-preview.png" class="env-flap-filigree" alt="">
+              </div>
+            </div>
+          </div>
+
+          <!-- Sello de Cera Dorado (R&E) transparente -->
+          <div class="wax-seal" id="wax-seal" title="Toca para abrir la invitación">
+            <div class="seal-pulse-ring"></div>
+            <img src="assets/images/wax_seal-removebg-preview.png" alt="Sello de cera R&E" class="wax-seal-img">
+          </div>
+        </div>
+      </div>
+
+      <!-- Indicador animado DEBAJO del sobre para que se note claramente -->
+      <div class="open-instruction" id="open-instruction" role="button" tabindex="0" aria-label="Toca el sello para abrir">
+        <span class="open-instruction-pulse-dot">✦</span>
+        <span>TOCA EL SELLO PARA ABRIR</span>
+        <span class="open-instruction-pulse-dot">✦</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================
+       CONTENIDO PRINCIPAL: INVITACIÓN DIGITAL
+       =================================================== -->
+  <main class="app-wrapper">
+    <article id="invitation-content">
+      
+      <!-- Fondo con rosas y follaje dorado en esquinas y laterales -->
+      <div class="invitation-bg-decorations">
+        <img src="assets/images/13-removebg-preview.png" alt="" class="inv-corner-flower top-left" loading="lazy">
+        <img src="assets/images/10-removebg-preview.png" alt="" class="inv-corner-flower top-right" loading="lazy">
+        <img src="assets/images/16-removebg-preview.png" alt="" class="side-branch-left" loading="lazy">
+        <img src="assets/images/3-removebg-preview.png" alt="" class="petal-sprig-accent" loading="lazy">
+        <img src="assets/images/8-removebg-preview.png" alt="" class="side-branch-right" loading="lazy">
+        <img src="assets/images/15-removebg-preview.png" alt="" class="cluster-flower-accent" loading="lazy">
+        <img src="assets/images/11-removebg-preview.png" alt="" class="inv-corner-flower bottom-left" loading="lazy">
+        <img src="assets/images/12-removebg-preview.png" alt="" class="inv-corner-flower bottom-right" loading="lazy">
+      </div>
+
+      <!-- Marco fino dorado -->
+      <div class="invitation-border-frame"></div>
+
+      <!-- 1. BARRA REPRODUCTORA DE MÚSICA -->
+      <header class="music-bar-container" data-animate>
+        <div class="music-pill" id="music-pill" role="button" aria-label="Reproducir o pausar música">
+          <div class="music-pill-left">
+            <svg class="music-icon-svg" viewBox="0 0 24 24">
+              <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+            </svg>
+            <div class="music-text-group">
+              <span class="music-title">Reproducir música</span>
+              <span class="music-subtitle">(Canción de nuestra historia)</span>
+            </div>
+          </div>
+          <div class="music-pill-right">
+            <div class="music-play-btn" id="music-play-btn">
+              <svg viewBox="0 0 24 24">
+                <polygon points="6 4 20 12 6 20 6 4"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- 2. MEDALLÓN MONOGRAMA DORADO R&E (Transparente) -->
+      <section class="monogram-section" data-animate>
+        <div class="monogram-badge-wrapper">
+          <img src="assets/images/gold_monogram-removebg-preview.png" alt="Monograma de Boda R&E" class="monogram-image">
+        </div>
+      </section>
+
+      <!-- 3. NOMBRES DE LOS NOVIOS -->
+      <section class="couple-names-block" data-animate>
+        <h1 class="groom-name">Roosvelt</h1>
+        <div class="and-divider">
+          <span class="and-line"></span>
+          <span class="and-letter">&</span>
+          <span class="and-line"></span>
+        </div>
+        <h2 class="bride-name">Erica</h2>
+
+        <!-- Floritura decorativa con corazón -->
+        <div class="gold-branch-divider">
+          <img src="assets/images/7-removebg-preview.png" alt="" class="gold-divider-img">
+        </div>
+
+        <p class="story-subtitle">EL INICIO DE NUESTRA MEJOR HISTORIA</p>
+      </section>
+
+      <!-- 4. MENSAJE REFLEXIÓN DE AMOR -->
+      <section class="love-reflection-block" data-animate>
+        <p class="love-reflection-text">
+          Ante las adversidades siempre prevaleció nuestro amor. Hoy comprendemos que fueron pruebas en nuestras vidas, para fortalecer ese amor que se volvió sólido y que iluminará ahora nuestro matrimonio.
+        </p>
+      </section>
+
+      <!-- Divisor con ramas doradas y corazón -->
+      <div class="gold-branch-divider" data-animate>
+        <img src="assets/images/7-removebg-preview.png" alt="" class="gold-divider-img" loading="lazy">
+      </div>
+
+      <!-- 5. CALENDARIO NOVIEMBRE 2026 -->
+      <section class="calendar-section" data-animate>
+        <h3 class="calendar-month-title">NOVIEMBRE 2026</h3>
+        <div class="calendar-grid">
+          <!-- Cabecera de días -->
+          <div class="cal-header-day">D</div>
+          <div class="cal-header-day">L</div>
+          <div class="cal-header-day">M</div>
+          <div class="cal-header-day">M</div>
+          <div class="cal-header-day">J</div>
+          <div class="cal-header-day">V</div>
+          <div class="cal-header-day">S</div>
+
+          <!-- Días del mes (Nov 2026 inicia en Domingo día 1) -->
+          <div class="cal-day">1</div>
+          <div class="cal-day">2</div>
+          <div class="cal-day">3</div>
+          <div class="cal-day">4</div>
+          <div class="cal-day">5</div>
+          <div class="cal-day">6</div>
+          <div class="cal-day">7</div>
+
+          <div class="cal-day">8</div>
+          <div class="cal-day">9</div>
+          <div class="cal-day">10</div>
+          <div class="cal-day">11</div>
+          <div class="cal-day">12</div>
+          <div class="cal-day">13</div>
+          <div class="cal-day">14</div>
+
+          <div class="cal-day">15</div>
+          <div class="cal-day">16</div>
+          <div class="cal-day">17</div>
+          <div class="cal-day">18</div>
+          <div class="cal-day">19</div>
+          <div class="cal-day">20</div>
+          <div class="cal-day">21</div>
+
+          <div class="cal-day">22</div>
+          <div class="cal-day">23</div>
+          <div class="cal-day">24</div>
+          <div class="cal-day">25</div>
+          <div class="cal-day">26</div>
+          <div class="cal-day">27</div>
+          
+          <!-- Día 28 con corazón dorado distintivo -->
+          <div class="cal-day special-day" title="Día de la Boda">
+            <div class="wedding-heart-badge"></div>
+            <span class="special-day-number">28</span>
+          </div>
+
+          <div class="cal-day">29</div>
+          <div class="cal-day">30</div>
+        </div>
+      </section>
+
+      <!-- Divisor con ramas doradas y corazón -->
+      <div class="gold-branch-divider" data-animate>
+        <img src="assets/images/7-removebg-preview.png" alt="" class="gold-divider-img" loading="lazy">
+      </div>
+
+      <!-- Luces ambientales dinámicas para profundidad moderna -->
+      <div class="ambient-glow-orb orb-1" aria-hidden="true"></div>
+      <div class="ambient-glow-orb orb-2" aria-hidden="true"></div>
+      <div class="ambient-glow-orb orb-3" aria-hidden="true"></div>
+
+      <!-- 6. CUENTA REGRESIVA EN TIEMPO REAL (MODERN GLASS TILES) -->
+      <section class="countdown-section" data-animate>
+        <div class="countdown-icon">
+          <!-- Ícono reloj de arena -->
+          <svg viewBox="0 0 24 24">
+            <path d="M5 22h14M5 2h14M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/>
+          </svg>
+        </div>
+        <h3 class="countdown-title">FALTAN</h3>
+
+        <div class="countdown-modern-grid">
+          <div class="countdown-tile">
+            <span class="countdown-digit" id="count-days">00</span>
+            <span class="countdown-label">DÍAS</span>
+          </div>
+          <span class="countdown-tile-sep">:</span>
+          <div class="countdown-tile">
+            <span class="countdown-digit" id="count-hours">00</span>
+            <span class="countdown-label">HORAS</span>
+          </div>
+          <span class="countdown-tile-sep">:</span>
+          <div class="countdown-tile">
+            <span class="countdown-digit" id="count-minutes">00</span>
+            <span class="countdown-label">MIN</span>
+          </div>
+          <span class="countdown-tile-sep">:</span>
+          <div class="countdown-tile">
+            <span class="countdown-digit" id="count-seconds">00</span>
+            <span class="countdown-label">SEG</span>
+          </div>
+        </div>
+
+        <div class="countdown-badge-date">
+          <span class="badge-dot">✦</span>
+          <span>28 DE NOVIEMBRE DE 2026 · 5:00 PM</span>
+          <span class="badge-dot">✦</span>
+        </div>
+      </section>
+
+      <!-- Divisor con ramas doradas y corazón -->
+      <div class="gold-branch-divider" data-animate>
+        <img src="assets/images/7-removebg-preview.png" alt="" class="gold-divider-img" loading="lazy">
+      </div>
+
+      <!-- 7. CEREMONIA RELIGIOSA -->
+      <section class="event-card" data-animate>
+        <div class="event-icon-circle">
+          <!-- Ícono Iglesia con Cruz -->
+          <svg viewBox="0 0 24 24">
+            <path d="M18 22H6a2 2 0 0 1-2-2V10l8-6 8 6v10a2 2 0 0 1-2 2z"/>
+            <path d="M12 4V1M10 2.5h4"/>
+            <path d="M10 22v-6a2 2 0 0 1 4 0v6"/>
+          </svg>
+        </div>
+        <h3 class="event-title">CEREMONIA RELIGIOSA</h3>
+        <h4 class="event-venue-name">PARROQUIA DEL INMACULADO CORAZÓN DE MARÍA</h4>
+        <p class="event-address">Calle Tacna 540-A, MIRAFLORES</p>
+        <p class="event-time">5:00 PM</p>
+        <a href="https://maps.app.goo.gl/6Yg9nCQioGJn2PudA?g_st=awb" target="_blank" rel="noopener noreferrer" class="gold-pill-btn">
+          <!-- Ícono Mapa -->
+          <svg viewBox="0 0 24 24">
+            <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
+            <line x1="8" y1="2" x2="8" y2="18"/>
+            <line x1="16" y1="6" x2="16" y2="22"/>
+          </svg>
+          <span>VER UBICACIÓN</span>
+          <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke-width:2.5">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </section>
+
+      <!-- Divisor con hojas y corazón -->
+      <div class="leaf-divider" data-animate>
+        <svg viewBox="0 0 200 24">
+          <path d="M10,12 L80,12 M120,12 L190,12" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M100,19 C100,19 90,12 90,7 C90,3.5 93,1 96,1 C98,1 99.5,2 100,3.5 C100.5,2 102,1 104,1 C107,1 110,3.5 110,7 C110,12 100,19 100,19 Z" fill="#fbe69e"/>
+          <circle cx="83" cy="12" r="2" fill="#d4af37"/>
+          <circle cx="117" cy="12" r="2" fill="#d4af37"/>
+        </svg>
+      </div>
+
+      <!-- 8. RECEPCIÓN -->
+      <section class="event-card" data-animate>
+        <div class="event-icon-circle">
+          <!-- Ícono Copas Brindis -->
+          <svg viewBox="0 0 24 24">
+            <path d="M8 22h8M12 15v7M8 15a4 4 0 0 1-4-4V3h8v8a4 4 0 0 1-4 4z"/>
+            <path d="M16 11V3h4v8a4 4 0 0 1-3.5 3.96"/>
+            <path d="M18 18.5l2 3.5"/>
+          </svg>
+        </div>
+        <h3 class="event-title">RECEPCIÓN</h3>
+        <p class="event-intro">Después de la ceremonia sírvase pasar por el Local de Recepción:</p>
+        <h4 class="event-venue-name">SALÓN DE EVENTOS YAVE YIRE</h4>
+        <p class="event-address">Av. Arancota Nº 109 - SACHACA</p>
+        <p class="event-time">7:00 PM</p>
+        <a href="https://maps.app.goo.gl/GsfetXPbKzaVkMxP9?g_st=awb" target="_blank" rel="noopener noreferrer" class="gold-pill-btn">
+          <!-- Ícono Mapa -->
+          <svg viewBox="0 0 24 24">
+            <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
+            <line x1="8" y1="2" x2="8" y2="18"/>
+            <line x1="16" y1="6" x2="16" y2="22"/>
+          </svg>
+          <span>VER UBICACIÓN</span>
+          <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke-width:2.5">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </section>
+
+      <!-- Divisor con ramas doradas y corazón -->
+      <div class="gold-branch-divider" data-animate>
+        <img src="assets/images/7-removebg-preview.png" alt="" class="gold-divider-img" loading="lazy">
+      </div>
+
+      <!-- 9. NUESTROS PADRES Y PADRINOS (ESTILO VERTICAL CENTRADO ELEGANTE) -->
+      <section class="editorial-family-section" data-animate>
+        
+        <!-- Divisor superior fino con rombo dorado -->
+        <div class="editorial-divider">
+          <span class="ed-line"></span>
+          <span class="ed-diamond">✦</span>
+          <span class="ed-line"></span>
+        </div>
+
+        <!-- PADRES DE LOS NOVIOS -->
+        <div class="editorial-block">
+          <h3 class="editorial-main-title">PADRES DE LOS NOVIOS</h3>
+          
+          <div class="editorial-family-flow">
+            <!-- Padres del Novio -->
+            <div class="editorial-person-group">
+              <h4 class="editorial-role-title">PADRES DE ROOSVELT</h4>
+              <p class="editorial-person-name">Doroteo Mamani Meza</p>
+              <p class="editorial-person-name">Nicolas Corrales Quispe</p>
+            </div>
+
+            <!-- Padres de la Novia -->
+            <div class="editorial-person-group">
+              <h4 class="editorial-role-title">PADRES DE ERICA</h4>
+              <p class="editorial-person-name">Manuel Cayetano Cuarite</p>
+              <p class="editorial-person-name">Fidela Alvarez Vilca</p>
+              <p class="editorial-person-name">Juan Huanca Gutierrez <span class="deceased-cross" title="En memoria">(†)</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PADRINOS -->
+        <div class="editorial-block padrinos-block">
+          <h3 class="editorial-main-title">PADRINOS</h3>
+
+          <!-- Padrinos Matrimonio Religioso -->
+          <div class="editorial-sub-block">
+            <h4 class="editorial-section-subtitle">PADRINOS · MATRIMONIO RELIGIOSO</h4>
+            
+            <div class="editorial-person-group">
+              <h5 class="editorial-subrole-title">PADRINO</h5>
+              <p class="editorial-person-name">Daniel Jove Huanca</p>
+            </div>
+
+            <div class="editorial-person-group">
+              <h5 class="editorial-subrole-title">MADRINA</h5>
+              <p class="editorial-person-name">Girila Larico Coaquira</p>
+            </div>
+          </div>
+
+          <!-- Padrinos Matrimonio Civil -->
+          <div class="editorial-sub-block">
+            <h4 class="editorial-section-subtitle">PADRINOS · MATRIMONIO CIVIL</h4>
+            
+            <div class="editorial-person-group">
+              <h5 class="editorial-subrole-title">PADRINO</h5>
+              <p class="editorial-person-name">Benjamin Molleapaza Quispe</p>
+            </div>
+
+            <div class="editorial-person-group">
+              <h5 class="editorial-subrole-title">MADRINA</h5>
+              <p class="editorial-person-name">Marcia Corrales Duran</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divisor inferior fino con rombo dorado -->
+        <div class="editorial-divider" style="margin-top: 26px;">
+          <span class="ed-line"></span>
+          <span class="ed-diamond">✦</span>
+          <span class="ed-line"></span>
+        </div>
+
+        <!-- Mensaje de presencia especial -->
+        <p class="special-presence-quote">
+          TU PRESENCIA HARÁ AÚN MÁS ESPECIAL ESTE DÍA TAN IMPORTANTE PARA NOSOTROS.
+        </p>
+      </section>
+
+      <!-- Divisor con ramas doradas y corazón -->
+      <div class="gold-branch-divider" data-animate>
+        <img src="assets/images/7-removebg-preview.png" alt="" class="gold-divider-img" loading="lazy">
+      </div>
+
+      <!-- 10. CÓDIGO DE VESTIMENTA -->
+      <section class="dress-code-section" data-animate>
+        <div class="dress-code-heart-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
+        <h3 class="dress-code-title">CÓDIGO DE VESTIMENTA</h3>
+
+        <div class="dress-code-card">
+          <h4 class="dress-code-style">Elegante</h4>
+          <div class="dress-code-filigree">
+            <span class="filigree-line"></span>
+            <span class="filigree-heart">♥</span>
+            <span class="filigree-line"></span>
+          </div>
+
+          <div class="dress-code-image-wrap">
+            <img src="assets/images/dress_code.jpg" alt="Código de vestimenta elegante" class="dress-code-img" loading="lazy">
+          </div>
+
+          <p class="dress-code-desc">
+            Agradecemos vestir formal / traje elegante para caballeros y vestido largo de fiesta para damas.
+          </p>
+        </div>
+      </section>
+
+      <!-- Divisor con ramas doradas y corazón -->
+      <div class="gold-branch-divider" data-animate>
+        <img src="assets/images/7-removebg-preview.png" alt="" class="gold-divider-img" loading="lazy">
+      </div>
+
+      <!-- 11. CONFIRMACIÓN DE ASISTENCIA Y NOTA IMPORTANTE -->
+      <section class="rsvp-section" data-animate>
+        <div class="dress-code-heart-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
+        <h3 class="dress-code-title">CONFIRMAR ASISTENCIA</h3>
+
+        <!-- Tarjeta de Nota Importante (idéntica a la imagen de referencia) -->
+        <div class="rsvp-elegant-card">
+          <h4 class="important-note-title">Nota importante</h4>
+          <p class="important-note-text">
+            Para que todos puedan disfrutar al máximo esta celebración especial, nuestra boda será un evento para adultos.
+          </p>
+
+          <p class="confirm-attendance-label">Confirmar asistencia</p>
+
+          <a href="https://wa.link/w6c99i" target="_blank" rel="noopener noreferrer" class="rsvp-elegant-btn" id="rsvp-btn">
+            <div class="rsvp-whatsapp-icon-mini">
+              <svg viewBox="0 0 24 24" fill="#fbe69e" width="19" height="19">
+                <path d="M17.472 14.382c-.301-.15-1.782-.879-2.057-.98-.276-.1-.476-.15-.677.15-.2.301-.777.98-.952 1.18-.176.2-.351.226-.652.075-.301-.15-1.272-.469-2.422-1.495-.895-.798-1.5-1.785-1.675-2.086-.176-.301-.019-.464.132-.614.135-.135.301-.351.451-.527.15-.176.2-.301.301-.501.1-.2.05-.376-.025-.526-.075-.15-.677-1.632-.927-2.234-.244-.586-.492-.507-.677-.516-.176-.008-.376-.01-.576-.01s-.526.075-.802.376c-.276.301-1.053 1.028-1.053 2.508s1.078 2.909 1.228 3.11c.15.201 2.122 3.24 5.141 4.544.718.31 1.278.496 1.716.635.722.23 1.379.197 1.9.12.579-.087 1.782-.728 2.032-1.431.251-.703.251-1.305.176-1.431-.076-.125-.276-.201-.577-.351z"/>
+                <path d="M12 2C6.48 2 2 6.48 2 12c0 1.95.56 3.77 1.53 5.32L2 22l4.82-1.49C8.32 21.46 10.1 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.63 0-3.14-.5-4.4-1.35l-.32-.21-2.86.88.9-2.77-.23-.35C4.24 14.93 3.7 13.52 3.7 12c0-4.58 3.72-8.3 8.3-8.3 4.58 0 8.3 3.72 8.3 8.3 0 4.58-3.72 8.3-8.3 8.3z"/>
+              </svg>
+            </div>
+            <span>HAZ CLIC AQUÍ</span>
+          </a>
+
+          <h4 class="we-wait-for-you-script">Te esperamos</h4>
+        </div>
+
+        <!-- Divisor fino con rombo dorado (idéntico a la imagen) -->
+        <div class="editorial-divider" style="margin: 28px auto 20px;">
+          <span class="ed-line"></span>
+          <span class="ed-diamond">✦</span>
+          <span class="ed-line"></span>
+        </div>
+
+        <!-- 12. UN DETALLE, SI ASÍ LO DESEAS (MESA DE REGALOS / YAPE) -->
+        <div class="gift-elegant-card" data-animate>
+          <!-- Título en caligrafía romántica idéntica a la imagen -->
+          <h3 class="gift-script-title">Un detalle, si<br>así lo deseas</h3>
+
+          <p class="gift-intro-text">
+            Lo que más deseamos es compartir este día contigo, tu compañía ya es nuestro mejor regalo.
+          </p>
+
+          <p class="gift-sub-text">
+            Si de todo corazón quieres tener un detalle con nosotros, puedes hacerlo por Yape:
+          </p>
+
+          <!-- Botón Ver Datos de Yape -->
+          <button type="button" class="gold-yape-btn" id="open-yape-btn" aria-label="Ver datos de Yape">
+            <span class="yape-btn-icon">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+                <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+                <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+                <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+              </svg>
+            </span>
+            <span class="yape-btn-text">VER DATOS DE YAPE</span>
+          </button>
+
+          <!-- Pie de tarjeta con monograma y fecha -->
+          <div class="gift-card-footer">
+            <span class="gift-footer-line left"></span>
+            <span class="gift-footer-monogram">R &amp; E &nbsp;·&nbsp; 28.11.2026</span>
+            <span class="gift-footer-line right"></span>
+          </div>
+        </div>
+
+        <!-- Alianzas de Boda Elegantes en tamaño refinado -->
+        <div class="closing-rings-container" data-animate>
+          <img src="assets/images/19-removebg-preview.png" alt="Alianzas de boda" class="closing-rings-img" loading="lazy">
+        </div>
+
+        <p class="final-quote" data-animate>
+          &ldquo;El amor es el comienzo de nuestra mejor historia.&rdquo;
+        </p>
+
+        <p class="we-wait-for-you" data-animate>LOS ESPERAMOS</p>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- Indicador flotante para deslizar hacia abajo -->
+  <div class="scroll-hint" id="scroll-hint" role="button" aria-label="Deslizar hacia abajo">
+    <span class="scroll-hint-text">Desliza</span>
+    <svg class="scroll-hint-arrow" viewBox="0 0 24 24">
+      <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+  </div>
+
+  <!-- Botón flotante de audio moderno con ecualizador animado -->
+  <button class="floating-audio-btn" id="floating-audio-btn" title="Control de audio" aria-label="Control de audio">
+    <div class="audio-disc-ring"></div>
+    <div class="audio-equalizer">
+      <span class="eq-bar bar-1"></span>
+      <span class="eq-bar bar-2"></span>
+      <span class="eq-bar bar-3"></span>
+    </div>
+    <svg class="audio-icon-svg" viewBox="0 0 24 24">
+      <polygon points="6 4 20 12 6 20 6 4"/>
+    </svg>
+  </button>
+
+  <!-- ===================================================
+       MODAL EMERGENTE DE DATOS DE YAPE / REGALOS
+       (Diseño fiel al ejemplo de referencia con 2 QRs)
+       =================================================== -->
+  <div class="yape-modal-backdrop" id="yape-modal" aria-hidden="true" role="dialog" aria-labelledby="yape-modal-title">
+    <div class="yape-modal-card">
+      <!-- Botón cerrar superior derecho -->
+      <button type="button" class="yape-modal-close" id="close-yape-btn" aria-label="Cerrar ventana">&times;</button>
+      
+      <!-- Cabecera del Modal -->
+      <div class="yape-modal-header">
+        <h4 class="yape-modal-title" id="yape-modal-title">Un detalle por Yape</h4>
+        <p class="yape-modal-subtitle">
+          Agradecemos con el corazón tu cariño y apoyo en este nuevo camino juntos.
+        </p>
+      </div>
+
+      <!-- Selector de Pestañas (Erica / Roosvelt) -->
+      <div class="yape-tabs-selector">
+        <button type="button" class="yape-tab-btn active" id="tab-btn-erica" data-target="erica">
+          <span>ERICA</span>
+        </button>
+        <button type="button" class="yape-tab-btn" id="tab-btn-roosvelt" data-target="roosvelt">
+          <span>ROOSVELT</span>
+        </button>
+      </div>
+
+      <!-- Contenedor Pestaña ERICA -->
+      <div class="yape-tab-content active" id="yape-tab-erica">
+        <!-- Cuadro Blanco del QR -->
+        <div class="yape-qr-card">
+          <img src="assets/images/qr_erica.png" alt="Código QR Yape Erica Soledad Huanca Alvarez" class="yape-qr-img">
+        </div>
+
+        <!-- Tarjeta de Datos -->
+        <div class="yape-details-card">
+          <div class="yape-num-label">NÚMERO YAPE:</div>
+          <div class="yape-num-value">970 146 838</div>
+          <div class="yape-titular-value">Titular: Erica Soledad Huanca Alvarez</div>
+        </div>
+
+        <!-- Botón de Copiar -->
+        <button type="button" class="yape-copy-action-btn" data-number="970146838" aria-label="Copiar número de Erica">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+          </svg>
+          <span class="copy-action-text">COPIAR NÚMERO YAPE</span>
+        </button>
+      </div>
+
+      <!-- Contenedor Pestaña ROOSVELT -->
+      <div class="yape-tab-content" id="yape-tab-roosvelt">
+        <!-- Cuadro Blanco del QR -->
+        <div class="yape-qr-card">
+          <img src="assets/images/qr_roosvelt.png" alt="Código QR Yape Roosvelt Mamani Corrales" class="yape-qr-img">
+        </div>
+
+        <!-- Tarjeta de Datos -->
+        <div class="yape-details-card">
+          <div class="yape-num-label">NÚMERO YAPE:</div>
+          <div class="yape-num-value">951 384 780</div>
+          <div class="yape-titular-value">Titular: Roosvelt Mamani Corrales</div>
+        </div>
+
+        <!-- Botón de Copiar -->
+        <button type="button" class="yape-copy-action-btn" data-number="951384780" aria-label="Copiar número de Roosvelt">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+          </svg>
+          <span class="copy-action-text">COPIAR NÚMERO YAPE</span>
+        </button>
+      </div>
+
+      <!-- Toast de confirmación de copiado -->
+      <div class="yape-toast-msg" id="yape-toast-msg">✓ ¡Número copiado al portapapeles!</div>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/envelope.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
