@@ -742,49 +742,49 @@ body {
   opacity: 0.90;
 }
 
-/* Ramas laterales de adorno (Gran tamaño, nitidez y presencia destacada) */
+/* Ramas laterales de adorno (Ubicación periférica refinada que no interfiere con textos) */
 .side-branch-left {
   position: absolute;
-  top: 480px;
-  left: -25px;
-  width: 160px;
+  top: 400px;
+  left: -32px;
+  width: 135px;
   height: auto;
   pointer-events: none;
-  opacity: 0.95;
-  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 12px rgba(212, 175, 55, 0.45));
+  opacity: 0.92;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
 }
 
 .side-branch-right {
   position: absolute;
-  top: 700px;
-  right: -25px;
-  width: 165px;
+  top: 760px;
+  right: -32px;
+  width: 138px;
   height: auto;
   pointer-events: none;
-  opacity: 0.95;
-  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 12px rgba(212, 175, 55, 0.45));
+  opacity: 0.92;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
 }
 
 .cluster-flower-accent {
   position: absolute;
-  top: 1380px;
-  right: -28px;
-  width: 190px;
+  top: 1460px;
+  right: -35px;
+  width: 155px;
   height: auto;
   pointer-events: none;
-  opacity: 0.95;
-  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 14px rgba(212, 175, 55, 0.45));
+  opacity: 0.92;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 12px rgba(212, 175, 55, 0.4));
 }
 
 .petal-sprig-accent {
   position: absolute;
-  top: 920px;
-  left: -25px;
-  width: 160px;
+  top: 1030px;
+  left: -32px;
+  width: 140px;
   height: auto;
   pointer-events: none;
-  opacity: 0.95;
-  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 12px rgba(212, 175, 55, 0.45));
+  opacity: 0.92;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
 }
 
 .single-rose-accent {
@@ -2630,27 +2630,31 @@ body {
   }
 
   .side-branch-left {
-    width: 135px !important;
-    left: -20px !important;
-    opacity: 0.95 !important;
+    width: 115px !important;
+    top: 380px !important;
+    left: -26px !important;
+    opacity: 0.92 !important;
   }
 
   .side-branch-right {
-    width: 140px !important;
-    right: -20px !important;
-    opacity: 0.95 !important;
+    width: 118px !important;
+    top: 740px !important;
+    right: -26px !important;
+    opacity: 0.92 !important;
   }
 
   .petal-sprig-accent {
-    width: 135px !important;
-    left: -20px !important;
-    opacity: 0.95 !important;
+    width: 120px !important;
+    top: 1010px !important;
+    left: -26px !important;
+    opacity: 0.92 !important;
   }
 
   .cluster-flower-accent {
-    width: 155px !important;
-    right: -22px !important;
-    opacity: 0.95 !important;
+    width: 135px !important;
+    top: 1420px !important;
+    right: -28px !important;
+    opacity: 0.92 !important;
   }
 
   .calendar-section,
