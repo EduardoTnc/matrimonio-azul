@@ -698,93 +698,137 @@ body {
   z-index: 10;
 }
 
-/* Fondo con flores decorativas en las esquinas */
+/* Fondo con flores decorativas en las esquinas y a lo largo de los laterales */
 .invitation-bg-decorations {
   position: absolute;
   inset: 0;
   pointer-events: none;
   overflow: hidden;
-  z-index: -1;
+  z-index: 0;
 }
 
-/* Flores transparentes en las 4 esquinas de la invitación */
+/* Flores transparentes en las 4 esquinas de la invitación (Más grandes y majestuosas) */
 .inv-corner-flower {
   position: absolute;
-  width: 175px;
+  width: 210px;
   height: auto;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.88;
-  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.7));
+  opacity: 0.92;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.75));
 }
 
 .inv-corner-flower.top-left {
-  top: -15px;
-  left: -15px;
+  top: -18px;
+  left: -18px;
 }
 
 .inv-corner-flower.top-right {
-  top: -15px;
-  right: -15px;
+  top: -18px;
+  right: -18px;
 }
 
 .inv-corner-flower.bottom-left {
-  bottom: -15px;
-  left: -15px;
-  width: 175px;
-  opacity: 0.88;
+  bottom: -18px;
+  left: -18px;
+  width: 210px;
+  opacity: 0.92;
 }
 
 .inv-corner-flower.bottom-right {
-  bottom: -15px;
-  right: -15px;
-  width: 175px;
+  bottom: -18px;
+  right: -18px;
+  width: 210px;
+  opacity: 0.92;
+}
+
+/* Elementos gráficos laterales continuos a lo largo de toda la invitación */
+.side-decor {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  height: auto;
+}
+
+.side-decor.side-left-1 {
+  top: 7%;
+  left: -24px;
+  width: 120px;
   opacity: 0.88;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.6));
+  transform: rotate(8deg);
 }
 
-/* Ramas laterales de adorno */
-.side-branch-left {
-  position: absolute;
-  top: 500px;
-  left: -12px;
-  width: 58px;
-  height: auto;
-  pointer-events: none;
-  opacity: 0.65;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.55));
+.side-decor.side-right-1 {
+  top: 17%;
+  right: -24px;
+  width: 125px;
+  opacity: 0.88;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.6));
+  transform: rotate(-12deg);
 }
 
-.side-branch-right {
-  position: absolute;
-  top: 720px;
-  right: -12px;
-  width: 62px;
-  height: auto;
-  pointer-events: none;
-  opacity: 0.65;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.55));
+.side-decor.side-left-2 {
+  top: 28%;
+  left: -30px;
+  width: 135px;
+  opacity: 0.92;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.65));
+  transform: rotate(-6deg);
 }
 
-.cluster-flower-accent {
-  position: absolute;
-  top: 1380px;
-  right: -14px;
-  width: 82px;
-  height: auto;
-  pointer-events: none;
-  opacity: 0.85;
-  filter: drop-shadow(0 6px 15px rgba(0, 0, 0, 0.65));
+.side-decor.side-right-2 {
+  top: 39%;
+  right: -26px;
+  width: 130px;
+  opacity: 0.9;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.65));
+  transform: rotate(14deg);
 }
 
-.petal-sprig-accent {
-  position: absolute;
-  top: 940px;
-  left: -12px;
-  width: 62px;
-  height: auto;
-  pointer-events: none;
-  opacity: 0.8;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.55));
+.side-decor.side-left-3 {
+  top: 50%;
+  left: -30px;
+  width: 140px;
+  opacity: 0.92;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.65));
+  transform: rotate(6deg);
+}
+
+.side-decor.side-right-3 {
+  top: 61%;
+  right: -24px;
+  width: 125px;
+  opacity: 0.88;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.6));
+  transform: rotate(-10deg);
+}
+
+.side-decor.side-left-4 {
+  top: 72%;
+  left: -22px;
+  width: 120px;
+  opacity: 0.88;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.6));
+  transform: rotate(-12deg);
+}
+
+.side-decor.side-right-4 {
+  top: 83%;
+  right: -28px;
+  width: 135px;
+  opacity: 0.92;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.65));
+  transform: rotate(8deg);
+}
+
+.side-decor.side-left-5 {
+  top: 92%;
+  left: -24px;
+  width: 120px;
+  opacity: 0.88;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.6));
+  transform: rotate(15deg);
 }
 
 .single-rose-accent {
@@ -2623,6 +2667,20 @@ body {
 @media (max-width: 440px) {
   #invitation-content {
     padding: 20px 24px 70px !important;
+  }
+
+  .inv-corner-flower {
+    width: 175px !important;
+  }
+
+  .side-decor {
+    width: 96px !important;
+  }
+
+  .side-decor.side-left-2,
+  .side-decor.side-left-3,
+  .side-decor.side-right-4 {
+    width: 110px !important;
   }
 
   .calendar-section,
