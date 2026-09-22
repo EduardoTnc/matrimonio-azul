@@ -710,81 +710,81 @@ body {
 /* Flores transparentes en las 4 esquinas de la invitación */
 .inv-corner-flower {
   position: absolute;
-  width: 175px;
+  width: 195px;
   height: auto;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.88;
+  opacity: 0.90;
   filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.7));
 }
 
 .inv-corner-flower.top-left {
-  top: -15px;
-  left: -15px;
+  top: -16px;
+  left: -16px;
 }
 
 .inv-corner-flower.top-right {
-  top: -15px;
-  right: -15px;
+  top: -16px;
+  right: -16px;
 }
 
 .inv-corner-flower.bottom-left {
-  bottom: -15px;
-  left: -15px;
-  width: 175px;
-  opacity: 0.88;
+  bottom: -16px;
+  left: -16px;
+  width: 195px;
+  opacity: 0.90;
 }
 
 .inv-corner-flower.bottom-right {
-  bottom: -15px;
-  right: -15px;
-  width: 175px;
-  opacity: 0.88;
+  bottom: -16px;
+  right: -16px;
+  width: 195px;
+  opacity: 0.90;
 }
 
-/* Ramas laterales de adorno */
+/* Ramas laterales de adorno (Mayor tamaño y presencia elegante) */
 .side-branch-left {
   position: absolute;
   top: 500px;
-  left: -12px;
-  width: 58px;
+  left: -18px;
+  width: 96px;
   height: auto;
   pointer-events: none;
-  opacity: 0.65;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.55));
+  opacity: 0.78;
+  filter: drop-shadow(0 5px 12px rgba(0,0,0,0.6));
 }
 
 .side-branch-right {
   position: absolute;
   top: 720px;
-  right: -12px;
-  width: 62px;
+  right: -18px;
+  width: 102px;
   height: auto;
   pointer-events: none;
-  opacity: 0.65;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.55));
+  opacity: 0.78;
+  filter: drop-shadow(0 5px 12px rgba(0,0,0,0.6));
 }
 
 .cluster-flower-accent {
   position: absolute;
   top: 1380px;
-  right: -14px;
-  width: 82px;
+  right: -20px;
+  width: 128px;
   height: auto;
   pointer-events: none;
-  opacity: 0.85;
-  filter: drop-shadow(0 6px 15px rgba(0, 0, 0, 0.65));
+  opacity: 0.88;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.7));
 }
 
 .petal-sprig-accent {
   position: absolute;
   top: 940px;
-  left: -12px;
-  width: 62px;
+  left: -18px;
+  width: 100px;
   height: auto;
   pointer-events: none;
-  opacity: 0.8;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.55));
+  opacity: 0.82;
+  filter: drop-shadow(0 5px 12px rgba(0, 0, 0, 0.6));
 }
 
 .single-rose-accent {
@@ -2623,6 +2623,30 @@ body {
 @media (max-width: 440px) {
   #invitation-content {
     padding: 20px 24px 70px !important;
+  }
+
+  .inv-corner-flower {
+    width: 175px !important;
+  }
+
+  .side-branch-left {
+    width: 82px !important;
+    left: -14px !important;
+  }
+
+  .side-branch-right {
+    width: 86px !important;
+    right: -14px !important;
+  }
+
+  .petal-sprig-accent {
+    width: 84px !important;
+    left: -14px !important;
+  }
+
+  .cluster-flower-accent {
+    width: 108px !important;
+    right: -16px !important;
   }
 
   .calendar-section,
