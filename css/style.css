@@ -742,102 +742,49 @@ body {
   opacity: 0.90;
 }
 
-/* Elementos gráficos laterales continuos a lo largo de toda la invitación */
-.side-decor {
+/* Ramas laterales de adorno (Mayor tamaño y presencia elegante) */
+.side-branch-left {
   position: absolute;
-  pointer-events: none;
-  z-index: 0;
+  top: 500px;
+  left: -18px;
+  width: 96px;
   height: auto;
+  pointer-events: none;
+  opacity: 0.78;
+  filter: drop-shadow(0 5px 12px rgba(0,0,0,0.6));
 }
 
-.side-decor.side-left-1 {
-  top: 7%;
-  left: -20px;
+.side-branch-right {
+  position: absolute;
+  top: 720px;
+  right: -18px;
   width: 102px;
-  opacity: 0.84;
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.6));
-  transform: rotate(8deg);
+  height: auto;
+  pointer-events: none;
+  opacity: 0.78;
+  filter: drop-shadow(0 5px 12px rgba(0,0,0,0.6));
 }
 
-.side-decor.side-right-1 {
-  top: 16%;
+.cluster-flower-accent {
+  position: absolute;
+  top: 1380px;
   right: -20px;
-  width: 106px;
-  opacity: 0.84;
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.6));
-  transform: rotate(-10deg);
-}
-
-.side-decor.side-left-2 {
-  top: 26%;
-  left: -20px;
-  width: 104px;
+  width: 128px;
+  height: auto;
+  pointer-events: none;
   opacity: 0.88;
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.65));
-  transform: rotate(-6deg);
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.7));
 }
 
-.side-decor.side-right-2 {
-  top: 36%;
-  right: -22px;
-  width: 124px;
-  opacity: 0.90;
-  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.65));
-  transform: rotate(12deg);
-}
-
-.side-decor.side-left-3 {
-  top: 47%;
-  left: -22px;
-  width: 120px;
-  opacity: 0.90;
-  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.65));
-  transform: rotate(6deg);
-}
-
-.side-decor.side-right-3 {
-  top: 57%;
-  right: -20px;
-  width: 112px;
-  opacity: 0.86;
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.6));
-  transform: rotate(-8deg);
-}
-
-.side-decor.side-left-4 {
-  top: 67%;
-  left: -20px;
-  width: 108px;
-  opacity: 0.86;
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.6));
-  transform: scaleX(-1) rotate(-10deg);
-}
-
-.side-decor.side-right-4 {
-  top: 77%;
-  right: -20px;
-  width: 104px;
-  opacity: 0.84;
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.6));
-  transform: rotate(8deg);
-}
-
-.side-decor.side-left-5 {
-  top: 86%;
-  left: -22px;
-  width: 122px;
-  opacity: 0.90;
-  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.65));
-  transform: scaleX(-1) rotate(12deg);
-}
-
-.side-decor.side-right-5 {
-  top: 93%;
-  right: -20px;
-  width: 104px;
-  opacity: 0.85;
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.6));
-  transform: scaleX(-1) rotate(-6deg);
+.petal-sprig-accent {
+  position: absolute;
+  top: 940px;
+  left: -18px;
+  width: 100px;
+  height: auto;
+  pointer-events: none;
+  opacity: 0.82;
+  filter: drop-shadow(0 5px 12px rgba(0, 0, 0, 0.6));
 }
 
 .single-rose-accent {
@@ -2682,14 +2629,24 @@ body {
     width: 175px !important;
   }
 
-  .side-decor {
-    width: 84px !important;
+  .side-branch-left {
+    width: 82px !important;
+    left: -14px !important;
   }
 
-  .side-decor.side-right-2,
-  .side-decor.side-left-3,
-  .side-decor.side-left-5 {
-    width: 98px !important;
+  .side-branch-right {
+    width: 86px !important;
+    right: -14px !important;
+  }
+
+  .petal-sprig-accent {
+    width: 84px !important;
+    left: -14px !important;
+  }
+
+  .cluster-flower-accent {
+    width: 108px !important;
+    right: -16px !important;
   }
 
   .calendar-section,
