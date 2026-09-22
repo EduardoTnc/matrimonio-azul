@@ -742,49 +742,49 @@ body {
   opacity: 0.90;
 }
 
-/* Ramas laterales de adorno (Mayor tamaño y presencia elegante) */
+/* Ramas laterales de adorno (Gran tamaño, nitidez y presencia destacada) */
 .side-branch-left {
   position: absolute;
-  top: 500px;
-  left: -18px;
-  width: 96px;
+  top: 480px;
+  left: -25px;
+  width: 160px;
   height: auto;
   pointer-events: none;
-  opacity: 0.78;
-  filter: drop-shadow(0 5px 12px rgba(0,0,0,0.6));
+  opacity: 0.95;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 12px rgba(212, 175, 55, 0.45));
 }
 
 .side-branch-right {
   position: absolute;
-  top: 720px;
-  right: -18px;
-  width: 102px;
+  top: 700px;
+  right: -25px;
+  width: 165px;
   height: auto;
   pointer-events: none;
-  opacity: 0.78;
-  filter: drop-shadow(0 5px 12px rgba(0,0,0,0.6));
+  opacity: 0.95;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 12px rgba(212, 175, 55, 0.45));
 }
 
 .cluster-flower-accent {
   position: absolute;
   top: 1380px;
-  right: -20px;
-  width: 128px;
+  right: -28px;
+  width: 190px;
   height: auto;
   pointer-events: none;
-  opacity: 0.88;
-  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.7));
+  opacity: 0.95;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 14px rgba(212, 175, 55, 0.45));
 }
 
 .petal-sprig-accent {
   position: absolute;
-  top: 940px;
-  left: -18px;
-  width: 100px;
+  top: 920px;
+  left: -25px;
+  width: 160px;
   height: auto;
   pointer-events: none;
-  opacity: 0.82;
-  filter: drop-shadow(0 5px 12px rgba(0, 0, 0, 0.6));
+  opacity: 0.95;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 12px rgba(212, 175, 55, 0.45));
 }
 
 .single-rose-accent {
@@ -2630,23 +2630,27 @@ body {
   }
 
   .side-branch-left {
-    width: 82px !important;
-    left: -14px !important;
+    width: 135px !important;
+    left: -20px !important;
+    opacity: 0.95 !important;
   }
 
   .side-branch-right {
-    width: 86px !important;
-    right: -14px !important;
+    width: 140px !important;
+    right: -20px !important;
+    opacity: 0.95 !important;
   }
 
   .petal-sprig-accent {
-    width: 84px !important;
-    left: -14px !important;
+    width: 135px !important;
+    left: -20px !important;
+    opacity: 0.95 !important;
   }
 
   .cluster-flower-accent {
-    width: 108px !important;
-    right: -16px !important;
+    width: 155px !important;
+    right: -22px !important;
+    opacity: 0.95 !important;
   }
 
   .calendar-section,
